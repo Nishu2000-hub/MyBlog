@@ -1,58 +1,52 @@
 ## UML
 ```mermaid
 classDiagram
-    %% Feature 3: Core Domain (Component Architecture)
+    %% Feature 3: Basic Coffee model
     class Coffee {
-      +id: string
-      +name: string
-      +description: string
-      +price: number
-      +imageUrl: string
+      +String id
+      +String name
+      +String description
+      +Number price
+      +String imageUrl
     }
-    class Review {
-      +id: string
-      +rating: number
-      +text: string
-    }
-    Coffee "1" o-- "*" Review : has reviews
 
-    %% Feature 4: Cart Functionality (Routing & Parsing)
+    %% Feature 4: Add Cart & Order
+    class Item {
+      +String coffeeId
+      +Number quantity
+    }
     class Cart {
-      +id: string
-      +user: User
-      +items: CartItem[]
+      +String id
+      +String userId
+      +Array<Item> items
     }
-    class CartItem {
-      +coffeeId: string
-      +quantity: number
-    }
-    Cart "1" o-- "*" CartItem : contains
-
-    %% Feature 5: Orders & Authentication
     class Order {
-      +id: string
-      +user: User
-      +items: OrderItem[]
-      +status: string
+      +String id
+      +String userId
+      +Array<Item> items
+      +String status
+      +Date createdAt
     }
-    class OrderItem {
-      +coffeeId: string
-      +quantity: number
-    }
-    Order "1" o-- "*" OrderItem : contains
 
-    %% User & Roles (Auth)
+    %% Feature 5: Add Auth (User & Role)
     class User {
-      +username: string
-      +email: string
-      +sessionToken: string
+      +String id
+      +String username
+      +String email
+      +String firstName
+      +String lastName
     }
     class Role {
-      +name: string
+      +String name
     }
-    User "1" <-- "1" Cart
-    User "1" <-- "1" Order
-    User "1" --> "*" Role : has roles
+
+    %% Relationships
+    Coffee --* Item         : coffeeId
+    Cart o-- Item           : items
+    Order o-- Item          : items
+    User "1" <-- "*" Cart   : userId
+    User "1" <-- "*" Order  : userId
+    User "*)" <-- "*" Role  : roles
 ```
 ## Component Tree Diagram
 ```mermaid
