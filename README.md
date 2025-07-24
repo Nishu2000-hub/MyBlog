@@ -1,52 +1,51 @@
 ## UML
 ```mermaid
 classDiagram
-    %% Feature 3: Basic Coffee model
+    %% Core Coffee model (Feature 3)
     class Coffee {
-      +String id
-      +String name
-      +String description
-      +Number price
-      +String imageUrl
+      +id: String
+      +name: String
+      +description: String
+      +price: Number
+      +imageUrl: String
     }
 
-    %% Feature 4: Add Cart & Order
+    %% Cart & Order added (Feature 4)
     class Item {
-      +String coffeeId
-      +Number quantity
+      +coffeeId: String
+      +quantity: Number
     }
     class Cart {
-      +String id
-      +String userId
-      +Array<Item> items
+      +id: String
+      +items: Item[]
     }
     class Order {
-      +String id
-      +String userId
-      +Array<Item> items
-      +String status
-      +Date createdAt
+      +id: String
+      +items: Item[]
+      +status: String
+      +createdAt: Date
     }
 
-    %% Feature 5: Add Auth (User & Role)
+    %% Authentication & Roles added (Feature 5)
     class User {
-      +String id
-      +String username
-      +String email
-      +String firstName
-      +String lastName
+      +id: String
+      +username: String
+      +email: String
+      +firstName: String
+      +lastName: String
     }
     class Role {
-      +String name
+      +name: String
     }
 
     %% Relationships
-    Coffee --* Item         : coffeeId
-    Cart o-- Item           : items
-    Order o-- Item          : items
-    User "1" <-- "*" Cart   : userId
-    User "1" <-- "*" Order  : userId
-    User "*)" <-- "*" Role  : roles
+    Cart "1" o-- "*" Item    : contains
+    Order "1" o-- "*" Item   : contains
+    Item "*" --> "1" Coffee  : references
+    Cart "1" --> "1" User    : belongsTo
+    Order "*" --> "1" User   : belongsTo
+    User "*" -- "*" Role     : assigned
+
 ```
 ## Component Tree Diagram
 ```mermaid
