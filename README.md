@@ -78,7 +78,6 @@ classDiagram
 
 
     ProtectedRoute --|> CartPage
-    ProtectedRoute --|> MyOrders
 
 
     PublicRoute --|> AuthModule
