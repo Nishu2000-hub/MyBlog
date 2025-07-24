@@ -75,16 +75,11 @@ classDiagram
 classDiagram
     Components --|> ProtectedRoute
     Components --|> PublicRoute
-    Components --|> AdminRoute
 
-    ProtectedRoute --> isAuthenticated
-    PublicRoute --> isAuthenticated
-    AdminRoute --> isAdmin
 
     ProtectedRoute --|> CartPage
     ProtectedRoute --|> MyOrders
 
-    AdminRoute --|> AdminOrders
 
     PublicRoute --|> AuthModule
     AuthModule --|> AuthLogin
