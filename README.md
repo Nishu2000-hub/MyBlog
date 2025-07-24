@@ -25,20 +25,20 @@ classDiagram
 ## Component Tree Diagram
 ```mermaid
 classDiagram
-    Components <|-- ProtectedRoute
-    Components <|-- PublicRoute
-    Components <|-- AdminRoute
+    Components --|> ProtectedRoute
+    Components --|> PublicRoute
+    Components --|> AdminRoute
 
     ProtectedRoute --> isAuthenticated
     PublicRoute --> isAuthenticated
     AdminRoute --> isAdmin
 
-    ProtectedRoute <|-- CartPage
-    ProtectedRoute <|-- MyOrders
+    ProtectedRoute --|> CartPage
+    ProtectedRoute --|> MyOrders
 
-    AdminRoute <|-- AdminOrders
+    AdminRoute --|> AdminOrders
 
-    PublicRoute <|-- AuthModule
-    AuthModule <|-- AuthLogin
-    AuthModule <|-- AuthRegister
-    AuthModule <|-- AuthNav
+    PublicRoute --|> AuthModule
+    AuthModule --|> AuthLogin
+    AuthModule --|> AuthRegister
+    AuthModule --|> AuthNav
