@@ -50,11 +50,12 @@ classDiagram
 ## Component Tree Diagram
 ```mermaid
 classDiagram
-    App --|> HomePage
-    App --|> MenuPage
-    App --|> CartPage
-    MenuPage --|> CoffeeService
-    CoffeeService ..> CoffeeModelService
+    App --|> Components
+    Components --|> Header
+    Components --|> MenuList
+    MenuList--|> MenuItem
+    Components --|> Orderform
+    Components --|>OrderSummary
 ```
 
 ## Component Tree Diagram
