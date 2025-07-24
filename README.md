@@ -1,5 +1,5 @@
 ## Component Tree Diagram
-mermaid
+```mermaid
 classDiagram
     
     App <|-- Navbar
