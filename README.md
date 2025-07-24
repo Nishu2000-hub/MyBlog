@@ -1,4 +1,7 @@
+## Component Tree Diagram
+mermaid
 classDiagram
+    
     App <|-- Navbar
     App <|-- MainContent
     MainContent <|-- HomePage
