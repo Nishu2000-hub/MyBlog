@@ -12,12 +12,12 @@ classDiagram
 ## Component Tree Diagram
 ```mermaid
 classDiagram
-    BrowserRouter <|-- Components
-    Components <|-- Navbar
-    Components <|-- Routes
+    BrowserRouter --|> Components
+    Components --|> Navbar
+    Components --|> Routes
 
-    Routes <|-- HomePage
-    Routes <|-- MenuPage
-    Routes <|-- CartPage
-    Routes <|-- MyOrders
-    Routes <|-- AdminOrders
+    Routes --|> HomePage
+    Routes --|> MenuPage
+    Routes --|> CartPage
+    Routes --|> MyOrders
+    Routes --|> AdminOrders
