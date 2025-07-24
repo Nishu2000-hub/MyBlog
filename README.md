@@ -68,8 +68,7 @@ classDiagram
     Routes --|> HomePage
     Routes --|> MenuPage
     Routes --|> CartPage
-    Routes --|> MyOrders
-    Routes --|> AdminOrders
+    Routes --|> 404-Not Found
 ```
 ## Component Tree Diagram
 ```mermaid
