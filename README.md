@@ -1,3 +1,5 @@
+## UML
+```mermaid
 classDiagram
     %% Feature 3: Core Domain (Component Architecture)
     class Coffee {
@@ -51,7 +53,7 @@ classDiagram
     User "1" <-- "1" Cart
     User "1" <-- "1" Order
     User "1" --> "*" Role : has roles
-
+```
 ## Component Tree Diagram
 ```mermaid
 classDiagram
