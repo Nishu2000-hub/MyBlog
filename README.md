@@ -106,3 +106,15 @@ classDiagram
     AuthModule --|> AuthRegister
 
     AdminRoute --|> AdminOrders
+```
+## Component Tree Diagram
+```mermaid
+classDiagram
+    User "1" -- "0..1" Cart : owns
+    Cart "1" -- "*" CartItem : contains
+    CartItem --> Coffee : references
+    User "1" -- "*" Order : places
+    Order "1" -- "*" OrderItem : contains
+    OrderItem --> Coffee : references
+    Coffee "1" -- "*" Review : has
+    Review --> User : author
