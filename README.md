@@ -110,11 +110,48 @@ classDiagram
 ## Component Tree Diagram
 ```mermaid
 classDiagram
+    class User {
+        +objectId: string
+        +username: string
+        +firstName: string
+        +lastName: string
+        +email: string
+    }
+    class Cart {
+        +objectId: string
+        +items: CartItem[]
+    }
+    class Order {
+        +objectId: string
+        +items: OrderItem[]
+        +status: string
+    }
+    class Coffee {
+        +objectId: string
+        +name: string
+        +description: string
+        +price: number
+        +imageUrl: string
+    }
+    class CartItem {
+        +coffeeId: string
+        +quantity: number
+    }
+    class OrderItem {
+        +coffeeId: string
+        +quantity: number
+    }
+    class Review {
+        +objectId: string
+        +rating: number
+        +text: string
+    }
+
     User "1" -- "0..1" Cart : owns
-    Cart "1" -- "*" CartItem : contains
-    CartItem --> Coffee : references
     User "1" -- "*" Order : places
-    Order "1" -- "*" OrderItem : contains
-    OrderItem --> Coffee : references
+    Cart "1" o-- "*" CartItem : contains
+    Order "1" o-- "*" OrderItem : contains
+    CartItem --> Coffee : refersTo
+    OrderItem --> Coffee : refersTo
     Coffee "1" -- "*" Review : has
-    Review --> User : author
+
