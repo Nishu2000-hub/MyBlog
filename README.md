@@ -84,3 +84,25 @@ classDiagram
     AuthModule --|> AuthLogin
     AuthModule --|> AuthRegister
     AuthModule --|> AuthNav
+```
+## Component Tree Diagram
+```mermaid
+classDiagram
+    Components --|> Navbar
+    Components --|> HomePage
+    Components --|> MenuPage
+    Components --|> ProtectedRoute
+    Components --|> PublicRoute
+    Components --|> AdminRoute
+
+    Navbar --|> AuthModule
+
+    ProtectedRoute --|> CartPage
+    ProtectedRoute --|> MyOrders
+
+    PublicRoute --|> AuthModule
+    AuthModule --|> AuthNav
+    AuthModule --|> AuthLogin
+    AuthModule --|> AuthRegister
+
+    AdminRoute --|> AdminOrders
